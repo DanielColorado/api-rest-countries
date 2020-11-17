@@ -24,14 +24,23 @@
 }
 
 body {
-    background-color: var(--very-light-gray);
+    --background-color: hsl(0, 0%, 98%);
+    --color-text: hsl(200, 15%, 8%);
+    --elements: hsl(0, 0%, 100%);
+    background-color: var(--background-color);
     font-size: var(--homepage-items);
     font-family: 'Nunito Sans', sans-serif;
-    color: var(--very-dark-blue);
+    color: var(--color-text);
+}
+
+body.dark-theme {
+    --background-color: hsl(207, 26%, 17%);
+    --color-text: hsl(0, 0%, 100%);
+    --elements: hsl(209, 23%, 22%);
 }
 
 header {
-    background-color: var(--white);
+    background-color: var(--elements);
     -webkit-box-shadow: var(--shadow);
     box-shadow: var(--shadow);
 }
@@ -59,6 +68,7 @@ nav h3 {
 
 img {
     width: 100%;
+    display: block;
 }
 
 .container-fluid {
@@ -68,6 +78,10 @@ img {
 .container {
     width: 92%;
     margin: 0 auto;
+}
+
+nav .icon {
+    cursor: pointer;
 }
 
 .filtros form {
@@ -93,7 +107,7 @@ img {
     -webkit-box-shadow: var(--shadow);
     box-shadow: var(--shadow);
     border-radius: .2em;
-    background: var(--white);
+    background: var(--elements);
 }
 
 .container-search i {
@@ -106,6 +120,8 @@ img {
     border: none;
     outline: none;
     width: 100%;
+    background-color: var(--elements);
+    color: var(--color-text);
 }
 
 .container-dropdown {
@@ -115,11 +131,16 @@ img {
 
 .c-dropdown {
     font-size: 13px;
-    background: var(--white);
+    background: var(--elements);
 }
 
 .c-dropdown__trigger {
     min-height: 47px;
+}
+
+.c-dropdown__filter {
+    background-color: var(--elements);
+    color: var(--color-text);
 }
 
 .c-dropdown__text {
@@ -134,7 +155,7 @@ img {
     box-shadow: var(--shadow);
     border-radius: .2em;
     z-index: 10;
-    background-color: var(--white);
+    background-color: var(--elements);
 }
 
 .c-dropdown__option {
@@ -143,7 +164,7 @@ img {
 
 .c-dropdown__arrow::before,
 .c-dropdown__arrow::after {
-    background-color: var(--very-dark-blue);
+    background-color: var(--color-text);
 }
 
 .c-dropdown__option--selected {
@@ -165,8 +186,10 @@ img {
 .card-container {
     border-radius: .5em;
     overflow: hidden;
+    background-color: var(--elements);
     -webkit-box-shadow: var(--shadow);
     box-shadow: var(--shadow);
+    cursor: pointer;
 }
 
 
@@ -194,6 +217,29 @@ img {
     font-size: 18px;
     font-weight: bolder;
     margin-bottom: 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --background-color: hsl(207, 26%, 17%);
+        --color-text: hsl(0, 0%, 100%);
+        --elements: hsl(209, 23%, 22%);
+    }
+    body.light-theme {
+        --background-color: hsl(0, 0%, 98%);
+        --color-text: hsl(200, 15%, 8%);
+        --elements: hsl(0, 0%, 100%);
+    }
+    img {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+    }
+    img:hover {
+        opacity: 1;
+    }
+    body.light-theme img {
+        opacity: 1;
+    }
 }
 
 @media (min-width:640px) {
