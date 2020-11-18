@@ -31,7 +31,7 @@ let search_by_country = (country) => {
 
 let render_country = (country) => {
     return `
-    <div class="card">
+    <div class="card" data-value="${country.name}">
         <div class="card-container">
             <img src="${country.flag}" alt="${country.name}" />
             <div class="card-body">
@@ -47,6 +47,7 @@ let render_country = (country) => {
 
 const contenedor = document.querySelector("#countries");
 const input = document.querySelector("#country");
+let paises_cards;
 
 document.addEventListener("DOMContentLoaded", () => {
     all_countries().then((response) => {
@@ -55,7 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
             paises += render_country(country);
         });
         contenedor.innerHTML = paises;
+        paises_cards = document.querySelectorAll(".card");
+        paises_cards.forEach(pais => {
+            pais.addEventListener('click', () => {
+                window.location.href = `detail.html?query=${pais.dataset.value}`;
+            });
+        })
     });
+
+
 });
 
 input.addEventListener("keyup", (e) => {
