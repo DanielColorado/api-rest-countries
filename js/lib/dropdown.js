@@ -45,17 +45,17 @@
 
     let render_country = (country) => {
         return `
-        <div class="card">
-            <div class="card-container">
-                <img src="${country.flag}" alt="${country.name}" />
-                <div class="card-body">
-                    <div class="card-title">${country.name}</div>
-                    <span><b>Population:</b> ${country.population}</span>
-                    <span><b>Region:</b> ${country.region} </span>
-                    <span><b>Capital:</b> ${country.capital} </span>
-                </div>
+        <div class="card" data-value="${country.name}">
+        <div class="card-container">
+            <img src="${country.flag}" alt="${country.name}" />
+            <div class="card-body">
+                <div class="card-title">${country.name}</div>
+                <span><b>Population:</b> ${country.population}</span>
+                <span><b>Region:</b> ${country.region} </span>
+                <span><b>Capital:</b> ${country.capital} </span>
             </div>
         </div>
+    </div>
         `;
     };
 
