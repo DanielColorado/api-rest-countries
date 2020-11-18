@@ -28,14 +28,6 @@ let search_by_country = (country) => {
     });
 };
 
-let search_borders = borders => {
-    return new Promise((resolve, reject) => {
-        fetch(`https://restcountries.eu/rest/v2/alpha?codes=${borders.join(';')}`, requestOptions)
-            .then((response) => response.json())
-            .then((result) => resolve(result))
-            .catch((error) => reject("error", error));
-    });
-};
 
 let render_country = (country) => {
     return `
