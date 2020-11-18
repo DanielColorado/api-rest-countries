@@ -173,6 +173,12 @@
                 paises += render_country(country);
             });
             contenedor.innerHTML = paises;
+            let paises_cards = document.querySelectorAll(".card");
+            paises_cards.forEach(pais => {
+                pais.addEventListener('click', () => {
+                    window.location.href = `detail.html?query=${pais.dataset.value}`;
+                });
+            })
         });
     };
 
